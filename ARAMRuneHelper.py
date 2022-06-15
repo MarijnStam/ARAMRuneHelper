@@ -1,13 +1,15 @@
 import willump
 import json
 import asyncio
+import webbrowser
 
 async def newChampion(data):
-
     #Iterate the JSON file to match the received ID to the Champion name
     for champs in champions['data']:
         if int(champions['data'][champs]['key']) is int(data['data']):
-            print(champions['data'][champs]['id'])
+            championURL = f"https://poro.gg/champions/{champions['data'][champs]['id']}/aram"
+            webbrowser.open(championURL.lower(), new=0, autoraise=True)
+
 
 async def main():
     global wlp 
